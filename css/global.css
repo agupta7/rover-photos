@@ -1,0 +1,61 @@
+@import url("webfonts.css");
+
+body {
+/* 	background-color: #BADA55; */
+	font: 1em/normal 'PT Sans';
+	background-color: #FDFDFD;
+}
+
+a, a:VISITED {
+	color: blue;
+	text-decoration: none;
+}
+a:ACTIVE {
+	color: red;
+}
+
+table.bordered td, table.bordered th {
+	border: 1px solid;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#userMessageDialog {
+	position: fixed;
+	top: 3em;
+	width: 100%;
+	z-index: 10000;
+	text-align: center;
+
+	transition: opacity 1s;
+	opacity: 0;
+	pointer-events: none;
+}
+#userMessageDialog.visible {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+#userMessageDialog > div {
+	background-color: #F7C0C0; 
+	color: #F90345; 
+	text-align: left; 
+	padding: 0.8em 1em; 
+	display: inline-block; 
+	border: 1px solid #F00; 
+	box-shadow: 0 0 1em #060102;
+}
+
