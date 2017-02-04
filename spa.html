@@ -7,8 +7,9 @@
 		</script>
 		<script type="text/javascript" src="lib/angular.js"></script>
 		<script type="text/javascript" src="js/spa.js"></script>
+		<script type="text/javascript" src="js/controllers/picker.js"></script>
 	</head>
-	<body>
+	<body ng-app="rover-photos">
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -23,6 +24,21 @@
 				</div>
 			</div>
 		</nav>
-		<p>Hello World!</p>
+		<div class="row">
+			<div class="col-md-3" ng-controller="picker">
+			<form name="filterPicker">				
+				<select ng-model="rover" ng-options="rover for rover in rovers">
+					<option value="">Pick a rover</option>
+				</select>
+			</form>
+			</div>
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-3">
+			</div>
+		</div>
+	</body>
 	</body>
 </html>
