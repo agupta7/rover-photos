@@ -1,3 +1,13 @@
 <div class="row" ng-controller="viewer as ctrl">
-
+<form name="filterPicker">
+		<div class="col-md-3">
+			<fieldset><legend>Select a rover</legend>			
+				<select ng-model="rover" ng-options="rover for rover in rovers" ng-change="ctrl.getRoverDetails(rover)" style="width: 80%;">
+					<option value="">Pick a rover...</option>
+				</select>
+			</fieldset>
+	
+		</div>
+		
+	</form>
 </div>
