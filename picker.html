@@ -1,6 +1,6 @@
 <div class="row" ng-controller="picker as ctrl">
 	<form name="filterPicker">
-		<div class="col-md-4">
+		<div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 1em;">
 			<fieldset><legend>Select a rover</legend>			
 				<select ng-model="rover" ng-options="rov as rov for (rov, cameras) in rovers" ng-change="ctrl.getRoverDetails(rover)" style="width: 80%;">
 					<option value="">Pick a rover first...</option>
@@ -16,7 +16,7 @@
 				<input type="number" ng-model="sol">
 			</fieldset>
 		</div> // -->
-		<div class="col-md-4">
+		<div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 1em;">
 			<fieldset ng-show="rover"><legend>Select a camera</legend>
 				<select ng-model="camera" style="width: 80%;">
 					<option value="">Optional...</option>
@@ -24,7 +24,7 @@
 				</select>
 			</fieldset>
 		</div>
-		<div class="col-md-4" style="text-align: center;" ng-show="rover">
+		<div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 1em;" ng-show="rover">
 			<br>
 			<button type="button" class="btn btn-primary" ng-click="ctrl.searchPhotos(rover, camera)">Search</button>
 		</div>

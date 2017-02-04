@@ -1,13 +1,9 @@
-<div class="row" ng-controller="viewer as ctrl">
-<form name="filterPicker">
-		<div class="col-md-3">
-			<fieldset><legend>Select a rover</legend>			
-				<select ng-model="rover" ng-options="rover for rover in rovers" ng-change="ctrl.getRoverDetails(rover)" style="width: 80%;">
-					<option value="">Pick a rover...</option>
-				</select>
-			</fieldset>
-	
-		</div>
-		
-	</form>
+<div class="row lg-gallery" ng-controller="viewer as ctrl">
+	<ul id="lightgallery" class="list-unstyled">
+                <li lightgallery ng-repeat="photo in photos" style="padding-bottom: 10px;" class="col-xs-6 col-sm-4 col-md-2" data-src="{{photo.img_src}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                    <a href="">
+                        <img class="img-responsive" ng-src="{{photo.img_src}}">
+                    </a>
+                </li>
+	</ul>
 </div>

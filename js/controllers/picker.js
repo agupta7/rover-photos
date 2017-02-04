@@ -35,7 +35,6 @@ app.controller("picker", ["$scope", "nasaApiClient", function ($scope, api) {
 		};
 		return api.getPhotos(options).then(function (photos) {
 			$scope.$root.$broadcast("photosFound", photos, options);
-			console.log(photos);
 		});
 	};
 }]);
