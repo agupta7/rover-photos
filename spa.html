@@ -7,6 +7,7 @@
 		</script>
 		<script type="text/javascript" src="lib/angular.js"></script>
 		<script type="text/javascript" src="js/spa.js"></script>
+		<script type="text/javascript" src="js/services/nasa-api.js"></script>
 		<script type="text/javascript" src="js/controllers/picker.js"></script>
 	</head>
 	<body ng-app="rover-photos">
@@ -17,22 +18,22 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
+						<li class="active"><a href="#">Basic search</a></li>
+						<li><a href="#">Guided search</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div class="row">
-			<div class="col-md-3" ng-controller="picker">
+			<div class="col-md-3" ng-controller="picker as ctrl">
 			<form name="filterPicker">				
-				<select ng-model="rover" ng-options="rover for rover in rovers">
+				<select ng-model="rover" ng-options="rover for rover in rovers" ng-change="ctrl.getRoverDetails(rover)">
 					<option value="">Pick a rover</option>
 				</select>
 			</form>
 			</div>
 			<div class="col-md-3">
+				
 			</div>
 			<div class="col-md-3">
 			</div>

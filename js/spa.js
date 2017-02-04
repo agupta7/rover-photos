@@ -1,5 +1,5 @@
 (function (window) {
-var app = angular.module("rover-photos", []);
+var app = angular.module("rover-photos", ["nasa-api"]);
 
 // Check DEBUG_MODE in the global window and set the local variable if true
 var DEBUG_MODE = window && (window.DEBUG_MODE ||  window.name && ~window.name.indexOf("DEBUG_MODE"));
