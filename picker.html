@@ -1,0 +1,32 @@
+<div class="row" ng-controller="picker as ctrl">
+	<form name="filterPicker">
+		<div class="col-md-3">
+			<fieldset><legend>Select a rover</legend>			
+				<select ng-model="rover" ng-options="rover for rover in rovers" ng-change="ctrl.getRoverDetails(rover)" style="width: 80%;">
+					<option value="">Pick a rover...</option>
+				</select>
+			</fieldset>
+	
+		</div>
+		<div class="col-md-4">
+			<fieldset><legend>Select day</legend>
+				<label><input type="radio" ng-model="vm.dayType" value="sol">Sol Number</label>
+				&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" ng-model="vm.dayType" value="earth">Earth Day</label>
+				<input type="number" ng-model="sol">
+			</fieldset>
+		</div>
+		<div class="col-md-3">
+			<fieldset><legend>Select a camera</legend>
+				<select ng-model="camera" style="width: 80%;">
+					<option value="">Pick a camera...</option>
+					<option ng-repeat="camera in cameras" title="{{camera.camera}}" ng-value="camera.abbr">{{camera.abbr}}</option>
+				</select>
+			</fieldset>
+		</div>
+		<div class="col-md-2" style="text-align: center;">
+			<br>
+			<button type="button" class="btn btn-primary">Search</button>
+		</div>
+	</form>
+</div>
