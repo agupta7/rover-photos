@@ -4,22 +4,38 @@ var app = angular.module("rover-photos");
 app.controller("picker", ["$scope", "nasaApiClient", function ($scope, api) {
 	var ctrl = this;
 
-	$scope.rovers = ["Curiosity", "Opportunity", "Spirit"];
+	$scope.rovers = {
+		"Curiosity": ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"],
+		"Spirit": ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"],
+		"Opportunity": ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]
+	};
 	$scope.cameras = [
-		{abbr: "FHAZ", camera: "Front Hazard Avoidance Camera"},
-		{abbr: "RHAZ", camera: "Rear Hazard Avoidance Camera"},
-		{abbr: "MAST", camera: "Mast Camera"},
-		{abbr: "CHEMCAM", camera: "Chemistry and Camera Complex"},
-		{abbr: "MAHLI", camera: "Mars Hand Lens Imager"},
-		{abbr: "MARDI", camera: "Mars Descent Imager"},
-		{abbr: "NAVCAM", camera: "Navigation Camera"},
-		{abbr: "PANCAM", camera: "Panoramic Camera"},
-		{abbr: "MINITES", camera: "Miniature Thermal Emission Spectrometer (Mini-TES)"}
+		{"FHAZ": "Front Hazard Avoidance Camera"},
+		{"RHAZ": "Rear Hazard Avoidance Camera"},
+		{"MAST": "Mast Camera"},
+		{"CHEMCAM": "Chemistry and Camera Complex"},
+		{"MAHLI": "Mars Hand Lens Imager"},
+		{"MARDI": "Mars Descent Imager"},
+		{"NAVCAM": "Navigation Camera"},
+		{"PANCAM": "Panoramic Camera"},
+		{"MINITES": "Miniature Thermal Emission Spectrometer"}
 	];
 	
 	ctrl.getRoverDetails = function (rover) {
 		return api.getManifest(rover).then(function (manifest) {
 			console.log(manifest.photo_manifest);
+		});
+	};
+
+	ctrl.searchPhotos = function (rover, camera) {
+		var options = {
+			rover: rover,
+			sol: 0,	
+			camera: camera
+		};
+		return api.getPhotos(options).then(function (photos) {
+			$scope.$root.$broadcast("photosFound", photos, options);
+			console.log(photos);
 		});
 	};
 }]);
