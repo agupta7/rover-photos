@@ -22,15 +22,15 @@ app.controller("picker", ["$scope", "nasaApiClient", function ($scope, api) {
 	];
 	
 	ctrl.getRoverDetails = function (rover) {
-		return api.getManifest(rover).then(function (manifest) {
+		/*return api.getManifest(rover).then(function (manifest) {
 			console.log(manifest.photo_manifest);
-		});
+		});*/
 	};
 
 	ctrl.searchPhotos = function (rover, camera) {
 		var options = {
 			rover: rover,
-			sol: 0,	
+			sol: 0,
 			camera: camera
 		};
 		return api.getPhotos(options).then(function (photos) {

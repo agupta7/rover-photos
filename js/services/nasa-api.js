@@ -13,7 +13,9 @@ angular.module("nasa-api", [])
 				url: getProxyUrl({
 					url: "https://api.nasa.gov/mars-photos/api/v1/manifests/" + roverName.toLowerCase()
 				})
-			}).then(dataTransformer);
+			}).then(function (httpResponse) {
+				return httpResponse.data && httpResponse.data.photo_manifest;
+			});
 		},
 		getPhotos: function (obj) {
 			//obj.rover, obj.sol/earth_date, obj.camera, obj.page

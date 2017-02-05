@@ -1,9 +1,19 @@
-<div class="row lg-gallery" ng-controller="viewer as ctrl">
-	<ul id="lightgallery" class="list-unstyled">
+<div class="row lg-gallery" ng-controller="viewer as ctrl" ng-show="photos" style="margin-top: 2em;">
+	<div class="col-md-12">
+		<label><input type="radio" ng-model="vm.dayType" value="sol">Sol</label>&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" ng-model="vm.dayType" value="earthDate">Earth Date</label>
+	</div>
+	<div class="col-md-12" style="margin-top: 2em; margin-bottom: 2em;" ng-show="sliderOptions.ceil">
+		<rzslider rz-slider-model="photoOptions.sol" rz-slider-options="sliderOptions"></rzslider>
+	</div>
+	<ul id="lightgallery" class="list-unstyled clearfix" ng-show="photos.length">
                 <li lightgallery ng-repeat="photo in photos" style="padding-bottom: 10px;" class="col-xs-6 col-sm-4 col-md-2" data-src="{{photo.img_src}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                     <a href="">
                         <img class="img-responsive" ng-src="{{photo.img_src}}">
                     </a>
                 </li>
 	</ul>
+	<div class="class-md-12" ng-hide="photos.length">
+		No pictures found for this day.
+	</div>
 </div>

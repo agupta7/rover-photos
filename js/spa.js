@@ -1,5 +1,5 @@
 (function (window) {
-var app = angular.module("rover-photos", ["nasa-api", "util"]);
+var app = angular.module("rover-photos", ["nasa-api", "util", "rzModule", "ui.bootstrap", "ngAnimate"]);
 
 // Check DEBUG_MODE in the global window and set the local variable if true
 var DEBUG_MODE = window && (window.DEBUG_MODE ||  window.name && ~window.name.indexOf("DEBUG_MODE"));
@@ -25,6 +25,14 @@ app.directive("lightgallery", function () {
 		}
 	}
 });
+
+app.run(["$rootScope", function ($rootScope) {
+	$rootScope.carousel = [
+		{img: "space1.jpg", quote: "It is difficult to say what is impossible, for the dream of yesterday is the hope of today and reality of tomorrow.", source: "Robert Goddard"},
+		{img: "space2.jpg", quote: "For I dipped into the Future, far as human eye could see; saw the vision of the world, and all the wonder that would be.", source: "Alfred, Lord Tennyson"},
+		{img: "space3.jpg", quote: "Man's mind and spirit grow with the space in which they are allowed to operate.", source: "Krafft A. Ehricke"}
+	];
+}]);
 if (DEBUG_MODE && window)
 	window.app = app;
 
